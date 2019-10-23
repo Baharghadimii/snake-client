@@ -33,6 +33,9 @@ const handleUserInput = (key) => {
       connection.write('Name: BGH');
       connection.write('Move: right');
     }
+    if (data === 'p') {
+      connection.write('Say: Hey');
+    }
   });
 };
 module.exports = { setupInput };
