@@ -1,20 +1,5 @@
-const net = require('net');
+const {net} = require('net');
 
-const setupInput = function () {
-  const stdin = process.stdin;
-  stdin.setRawMode(true);
-  stdin.setEncoding('utf8');
-  stdin.resume();
-  handleUserInput(stdin);
-  return stdin;
-};
-const handleUserInput = (key) => {
-  key.on('data', data => {
-    if (data === '\u0003') {
-      process.exit();
-    }
-  });
-};
 
 const connect = () => {
   const conn = net.createConnection({
@@ -23,9 +8,6 @@ const connect = () => {
   });
 
   conn.setEncoding('utf8');
-
-  setupInput();
-
 
   conn.on('data', (data) => {
     console.log(data);
