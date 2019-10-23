@@ -11,6 +11,10 @@ const connect = () => {
   conn.on('data', (data) => {
     console.log(data);
   });
+  conn.on('connect' , () => {
+    console.log('Successfully connected to game server');
+    conn.write('Name: BGH');
+  });
 
   return conn;
 
